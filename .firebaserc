@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-task-2ac02": {
+      "hosting": {
+        "my-app": [
+          "angular-task-2ac02"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-task-2ac02"
+  }
+}

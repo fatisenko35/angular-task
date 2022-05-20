@@ -1,0 +1,51 @@
+<div class="wrapper">
+
+    <div class="wrapper-left">
+        <div class="wrapper-left-top">
+          <h1 class="page-header">LOGO</h1>
+          <h4>VERIFY EMAIL</h4>
+          <p>We’ve sent a verification code to your email.</p>
+          <p>Address : <a href="#">johndoe@example.com</a></p>
+        </div>
+        <div class="input-wrapper">
+          <input type="number" min="0" max="9" class="{{classInput}}" #digitOne  (paste)="onPaste($event)" maxlength="1"
+          (keyup)="onDigitInput($event)" [(ngModel)]="data[0]"/>
+        <input class="{{classInput}}" #digitTwo type="number" min="0" max="9" maxlength="1" (keyup)="onDigitInput($event)" [(ngModel)]="data[1]"/>
+        <input class="{{classInput}}" #digitThree type="number" min="0" max="9" maxlength="1" (keyup)="onDigitInput($event)" [(ngModel)]="data[2]"/>
+        <input class="{{classInput}}" #digitFour type="number" min="0" max="9" maxlength="1" (keyup)="onDigitInput($event)" [(ngModel)]="data[3]"/>
+        
+        </div>
+
+        <div *ngIf="counter.min; else noTimer" class="container d-flex justify-content-center">
+          <span class="fs-3 text-secondary">{{counter.min}} : {{counter.sec}}</span>
+        </div>
+        <ng-template #noTimer>
+          <div></div>
+      </ng-template>
+        <div class="wrapper-left-bottom">
+          <span class="button-span">
+            <button (click)="validate()">
+              <span class="btn-left">Proceed</span> <span class="btn-right">></span>
+            </button>
+            <p>Didn't receive email? <a href="#" (click)="startTimer('message')">Resend</a></p>
+          </span>
+          
+        </div>
+        
+      </div>
+      <div class="wrapper-right">
+        <ngb-carousel
+          *ngIf="images"
+          [showNavigationArrows]="showNavigationArrows"
+          [showNavigationIndicators]="showNavigationIndicators"
+        >
+          <ng-template ngbSlide *ngFor="let image of images">
+            <div class="picsum-img-wrapper container overflow-hidden">
+              <img [src]="image" alt="Random slide" />
+             
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </div>
+  
+</div>
